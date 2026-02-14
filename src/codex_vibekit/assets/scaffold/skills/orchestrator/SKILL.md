@@ -1,7 +1,7 @@
 # Skill: orchestrator
 
 ## Purpose
-Run the project workflow: read the current state, decide what to do next, call the right skills, and keep the work log updated.
+Run the project workflow end-to-end: read state, choose next action, dispatch skills, request support threads when needed, and integrate outputs.
 
 ## When to Use
 - At the start of a session
@@ -9,32 +9,58 @@ Run the project workflow: read the current state, decide what to do next, call t
 - When integrating outputs from multiple skills
 - When the project feels stuck or scattered
 
-## Operating Loop (One Cycle)
+## Quick Start Trigger
+If user input is short (for example, "continue", "next", "go on", or "orchestrate this"), treat it as:
+- continue in orchestrator mode
+- read hub/worklog first
+- decide next smallest output
+- request support thread only if needed
+
+## Operating Loop (main thread)
 
 1. **Pull**: Read `PROJECT_HUB.md` (Recent Changes) + latest `logs/work/WORKLOG-*.md`
-2. **Decide**: What stage are we in? What's the minimum next output?
-   - Stages: **Specify → Plan → Build → Review**
-3. **Act**: Call 1–2 skills (prefer fewer), or do the work directly if it's small
-4. **Log**: Append to today's `logs/work/WORKLOG-YYYY-MM-DD.md`
-   - If new docs were created, add links to `PROJECT_HUB.md`
+2. **Decide**: What is the minimum next output for momentum?
+3. **Act**: Do it directly or dispatch one skill (`planner`, `builder`, `critic`)
+4. **Split (if needed)**: Ask user to open a support thread with an exact prompt
+5. **Merge**: Integrate returned output, resolve conflicts, update `PROJECT_HUB.md`
+6. **Log**: Append a short entry to `logs/work/WORKLOG-YYYY-MM-DD.md`
 
-## Gate B — Architecture / Contract Check
-Pause and ask the user when:
+## Human Confirmation (required)
+Pause and ask the user when decisions are hard to reverse:
 - API contracts, data model, or auth decisions need to be locked
 - There are competing technical options with real tradeoffs
 - A choice is hard to reverse later
 
-(Gate A for scope and Gate C for release can be triggered manually by the user when needed.)
+## Support Thread Request Contract
+When asking for a new thread, output:
+- **Reason**: why parallel support is needed now
+- **Ready prompt**: exact message for the new thread
+- **Expected output**: target file path(s) and response format
+- **Return rule**: what summary must be pasted back to main thread
+
+Template:
+
+```text
+Open Thread <N> and send this prompt:
+"Act as <skill> for <scope>.
+Task: <single bounded task>.
+Write output to <doc path>.
+Return: concise summary with assumptions, risks, and unresolved questions."
+
+When done, paste back:
+1) changed file paths
+2) key decisions
+3) open risks/questions
+```
 
 ## Constraints
-- Prefer doing over planning. If the next step is obvious, just do it.
-- Don't over-call skills. 1–2 per cycle is the sweet spot.
-- Don't skip logging — but keep logs short (3–5 lines per entry).
-- If something is outside your scope, call the appropriate skill instead of guessing.
+- Keep human burden low: ask for goals, constraints, and approvals only
+- Keep tasks bounded: one support thread should have one clear deliverable
+- Keep merge explicit: call out conflicts before choosing one direction
+- Keep logs short: 3–5 lines per entry
 
 ## Output Block (when decisions are involved)
 - Decision Needed (Yes/No):
 - Risk (if any):
 - Next Action:
 - Docs Created/Updated:
-

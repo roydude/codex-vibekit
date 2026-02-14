@@ -10,6 +10,7 @@ Design and implement the product. This skill covers UX design, frontend, backend
 - When UX flows need to be designed alongside implementation
 
 ## Required Inputs
+- Orchestrator task statement (scope, boundaries, expected outputs)
 - `docs/specs/*` (what to build)
 - `PROJECT_HUB.md` (current status)
 - Existing contracts/decisions (if any)
@@ -38,13 +39,19 @@ Depending on the task, produce one or more of:
 ### Technical Decisions
 - When facing competing options: compare 2–3, recommend one
 - If significant, create `docs/decisions/ADR-####-<slug>.md`
-- If the tradeoff is hard to reverse, trigger Gate B
+- If the tradeoff is hard to reverse, ask for human confirmation through orchestrator
+
+Return to orchestrator with:
+- changed file path(s)
+- what was implemented/designed
+- assumptions, risks, unresolved dependencies
 
 ## Constraints
 - Build for the spec, not for hypothetical future needs
 - Contract-first: define the API before implementing
 - If a UX choice impacts the API significantly, flag it
 - Don't silently change contracts — propose changes explicitly
+- Keep output bounded to assigned scope; do not branch into unrelated tasks
 
 ## Quality Bar
 - Code/contracts are consistent with the spec
@@ -58,4 +65,3 @@ Depending on the task, produce one or more of:
 - Risk (if any):
 - Next Action:
 - Docs Created/Updated:
-

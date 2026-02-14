@@ -10,6 +10,7 @@ Turn an idea into an actionable plan: what to build, why, what's out of scope, a
 - When docs are scattered and need a structure recommendation
 
 ## Required Inputs
+- Orchestrator task statement (scope, output path, constraints)
 - User idea and constraints (time, platform, must-have / must-not)
 - `PROJECT_HUB.md` (North Star, current status)
 - Existing specs/design/contracts (if any)
@@ -30,10 +31,16 @@ Also recommend which docs are needed next and where they should live:
 - API/Schema: `docs/contracts/`
 - UX notes: `docs/design/`
 
+Return to orchestrator with:
+- changed file path(s)
+- 3–7 line summary
+- assumptions and open questions
+
 ## Constraints
 - Avoid over-engineering; MVP should be buildable in days, not weeks
 - If requirements are underspecified, ask ≤ 5 questions or mark assumptions
-- Don't decide architecture in detail — flag for builder or Gate B
+- Don't lock architecture in detail — escalate to orchestrator for human confirmation
+- Treat this as a bounded assignment from orchestrator, not a full-project rewrite
 
 ## Quality Bar
 - MVP scope is small and testable
@@ -46,4 +53,3 @@ Also recommend which docs are needed next and where they should live:
 - Risk (if any):
 - Next Action:
 - Docs Created/Updated:
-

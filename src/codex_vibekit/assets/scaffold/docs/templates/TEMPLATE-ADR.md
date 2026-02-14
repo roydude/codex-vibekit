@@ -1,5 +1,9 @@
 # ADR-####: <title>
 
+## Trigger
+- Requested by orchestrator:
+- Why this needs human confirmation now:
+
 ## Status
 - Proposed | Accepted | Deprecated
 
@@ -19,3 +23,7 @@
 - Negative / risks:
 - Follow-ups:
 
+## Return Summary (for main orchestrator thread)
+- Decision selected:
+- Rejected alternatives:
+- Impacted docs/contracts:

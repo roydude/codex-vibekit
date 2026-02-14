@@ -13,6 +13,15 @@
 ## Current Status
 - This week goal:
 - Blockers:
+- Main thread owner (orchestrator):
+- Active support threads:
+
+## Thread Queue (requested by orchestrator)
+- Thread ID:
+- Role:
+- Task:
+- Expected output:
+- Status: queued | running | returned
 
 ## Docs
 - Specs: `docs/specs/`
@@ -23,4 +32,3 @@
 
 ## Open Questions (≤ 5)
 - Q1:
-

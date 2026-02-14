@@ -10,6 +10,7 @@ Evaluate the product as the target customer: find usability and trust issues, sc
 - As a sanity check on any major feature
 
 ## Required Inputs
+- Orchestrator review request (what to review and why now)
 - Current UX spec, implementation, or prototype description
 - Feature spec (intent and success metrics)
 - Any screenshots/flows if available
@@ -28,11 +29,17 @@ Provide:
 
 Record in `logs/work/WORKLOG-YYYY-MM-DD.md`
 
+Return to orchestrator with:
+- priority-ordered issues
+- quick wins
+- ship/no-ship recommendation for current scope
+
 ## Constraints
 - Use user language, not engineering jargon
 - Be specific and actionable
 - Don't propose large scope expansions as "quick wins"
 - Quick wins should be achievable in under an hour each
+- Keep review focused on assigned scope, not whole-project re-planning
 
 ## Quality Bar
 - Feedback is actionable and prioritized
@@ -45,4 +52,3 @@ Record in `logs/work/WORKLOG-YYYY-MM-DD.md`
 - Risk (if any):
 - Next Action:
 - Docs Created/Updated:
-

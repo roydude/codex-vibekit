@@ -77,7 +77,7 @@ flowchart TB
   planner["Planner"]
   builder["Builder"]
   critic["Critic"]
-  gate_b["User Decision (\"Gate B\")"]
+  gate_b["User Decision ('Gate B')"]
 
   subgraph repo["Shared Repository"]
     hub["PROJECT_HUB.md"]

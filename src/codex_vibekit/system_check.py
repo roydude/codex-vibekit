@@ -11,13 +11,15 @@ def run_check() -> int:
 
     print("codex-vibekit check")
     print(f"- Python: {platform.python_version()} ({sys.executable})")
-    print(f"- uv: {'OK' if uv_path else 'MISSING'}" + (f" ({uv_path})" if uv_path else ""))
+    print(
+        f"- uv (optional): {'OK' if uv_path else 'MISSING'}"
+        + (f" ({uv_path})" if uv_path else "")
+    )
     print(
         f"- git: {'OK' if git_path else 'MISSING'}" + (f" ({git_path})" if git_path else "")
     )
     if sys.version_info < (3, 11):
         print("- note: Python 3.11+ is recommended.")
     if not uv_path:
-        print("- install uv: https://docs.astral.sh/uv/")
+        print("- install uv (optional): https://docs.astral.sh/uv/")
     return 0
-

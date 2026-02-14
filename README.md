@@ -2,10 +2,26 @@
 
 `codex-vibekit` is a small CLI that injects an operating scaffold (folders/docs/skills) into a vibe-coding project root.
 
-## Install (via uv)
+## Install
+
+### Option A: pipx (recommended, no uv)
+
+```bash
+pipx install git+https://github.com/roydude/codex-vibekit.git
+```
+
+### Option B: uv (optional)
 
 ```bash
 uv tool install --from git+https://github.com/roydude/codex-vibekit.git
+```
+
+### Option C: venv + pip (project-local)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install git+https://github.com/roydude/codex-vibekit.git
 ```
 
 ## Usage
@@ -25,10 +41,7 @@ codex-vibekit init .
 ## Local smoke test (repo checkout)
 
 ```bash
-python -m venv .venv && source .venv/bin/activate
-python -m pip install -e .
 mkdir -p /tmp/vibekit-test && cd /tmp/vibekit-test
-codex-vibekit init .
+PYTHONPATH=/path/to/your/clone/src python3 -m codex_vibekit init .
 find . -maxdepth 3 -type f | sort
 ```
-

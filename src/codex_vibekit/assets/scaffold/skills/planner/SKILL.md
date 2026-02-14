@@ -29,6 +29,11 @@ Skip brainstorming when:
 - Task is implementation-clear (bug fix/refactor/doc update)
 - Existing approved design docs already settle key choices
 
+## Technique Call Conditions: korean-humanizer
+Call korean-humanizer (`skills/techniques/korean-humanizer/SKILL.md`) when:
+- You are about to deliver Korean text to the user and it reads like translationese or template prose
+- The user explicitly asks for “사람처럼”, “자연스럽게”, “AI 티 빼줘”, or “휴머나이징”
+
 ## Output Contract
 Create or update a spec doc: `docs/specs/SPEC-####-<slug>.md`
 

@@ -52,6 +52,8 @@ Use `codex-vibekit` when:
 | Technique | Used by | Purpose |
 |---|---|---|
 | `brainstorming` | `orchestrator`, `planner` | Refine ambiguous requirements, explore approaches, prepare design-approval questions |
+| `web-motion-polish` | `builder` | Add lightweight motion and micro-interactions to web UI with performance/accessibility gates |
+| `korean-humanizer` | any | Rewrite Korean to remove AI/translationese signals while preserving meaning and keeping tone consistent |
 
 ## Codex Workflow
 
@@ -65,6 +67,50 @@ Use `codex-vibekit` when:
 4. If extra parallel work is needed, orchestrator explicitly asks for a new support thread.
 5. Human opens the new thread and passes orchestrator's request as-is.
 6. Orchestrator integrates results, resolves conflicts, and updates `PROJECT_HUB.md` and `WORKLOG`.
+
+### Workflow diagram
+
+```mermaid
+flowchart TB
+  solo["Solo Developer"]
+  orch["Orchestrator"]
+  planner["Planner"]
+  builder["Builder"]
+  critic["Critic"]
+  gate_b["User Decision (\"Gate B\")"]
+
+  subgraph repo["Shared Repository"]
+    hub["PROJECT_HUB.md"]
+    contracts["docs/contracts/*"]
+    decisions["docs/decisions/ADR-*"]
+    design["docs/design/*"]
+    specs["docs/specs/*"]
+    worklog["logs/work/WORKLOG-*"]
+  end
+
+  solo -->|"Idea / Direction"| orch
+  orch -->|"When Architecture decision needed"| gate_b
+  gate_b -->|"Approve / Redirect"| solo
+
+  orch -->|"Pull: Read latest header"| hub
+  orch -->|"Update links + status"| hub
+  orch -->|"Log summary"| worklog
+
+  orch -->|"Call skill"| builder
+  orch -->|"Call skill"| planner
+  orch -->|"Call skill"| critic
+
+  planner -->|"Create: SPEC"| specs
+  planner -->|"Recommend doc structure"| design
+  planner -->|"Log work"| worklog
+
+  builder -->|"Create: API contracts"| contracts
+  builder -->|"Create: ADR (if tradeoff)"| decisions
+  builder -->|"Create: UX flows"| design
+  builder -->|"Log work"| worklog
+
+  critic -->|"Score + feedback"| worklog
+```
 
 ### Prompt examples (orchestrator first)
 

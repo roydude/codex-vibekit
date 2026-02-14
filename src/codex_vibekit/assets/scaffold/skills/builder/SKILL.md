@@ -20,6 +20,18 @@ Design and implement the product. This skill covers UX design, frontend, backend
 - `PROJECT_HUB.md` (current status)
 - Existing contracts/decisions (if any)
 
+## Technique Call Conditions: web-motion-polish
+Call web-motion-polish (`skills/techniques/web-motion-polish/SKILL.md`) when:
+- Building or polishing a web UI that feels static or unresponsive
+- You need intentional transitions/micro-interactions while keeping performance and accessibility
+
+Skip web-motion-polish when:
+- Task is backend-only, contracts-only, or non-UI work
+- Existing approved design constraints explicitly prohibit motion changes
+
+Important:
+- web-motion-polish has a hard gate: propose exactly 3 moments and a motion spec, then get user approval before implementation.
+
 ## Output Contract
 Depending on the task, produce one or more of:
 

@@ -40,6 +40,8 @@
 | Technique | Used by | Purpose |
 |---|---|---|
 | `brainstorming` | `orchestrator`, `planner` | Refine ambiguous requirements, compare approaches, prepare design-approval questions |
+| `web-motion-polish` | `builder` | Add lightweight motion and micro-interactions to web UI with accessibility/performance gates |
+| `korean-humanizer` | any | Rewrite Korean to remove AI/translationese signals while preserving meaning and keeping tone consistent |
 
 ## Human confirmation points (required)
 - Ask the user before locking hard-to-reverse choices:

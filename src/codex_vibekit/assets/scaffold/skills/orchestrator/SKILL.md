@@ -27,9 +27,10 @@ If user input is short (for example, "continue", "next", "go on", or "orchestrat
 2. **Decide**: What is the minimum next output for momentum?
 3. **Act**: Do it directly or dispatch one skill (`planner`, `builder`, `critic`)
 4. **Brainstorm (if needed)**: call technique `skills/techniques/brainstorming/SKILL.md` before committing to a direction
-5. **Split (if needed)**: Ask user to open a support thread with an exact prompt
-6. **Merge**: Integrate returned output, resolve conflicts, update `PROJECT_HUB.md`
-7. **Log**: Append a short entry to `logs/work/WORKLOG-YYYY-MM-DD.md`
+5. **Humanize (if needed)**: call technique `skills/techniques/korean-humanizer/SKILL.md` before publishing Korean text that sounds AI-written
+6. **Split (if needed)**: Ask user to open a support thread with an exact prompt
+7. **Merge**: Integrate returned output, resolve conflicts, update `PROJECT_HUB.md`
+8. **Log**: Append a short entry to `logs/work/WORKLOG-YYYY-MM-DD.md`
 
 ## Technique Call Conditions: brainstorming
 Call brainstorming when:
@@ -40,6 +41,16 @@ Call brainstorming when:
 Skip brainstorming when:
 - Task is already clear and bounded
 - Existing approved docs already define the solution path
+
+## Technique Call Conditions: korean-humanizer
+Call korean-humanizer (`skills/techniques/korean-humanizer/SKILL.md`) when:
+- User asks for “휴머나이징”, “번역체 제거”, “AI 티 없애기”, or similar
+- Korean output is going to be published (blog/report/SNS) and reads generic, overly formal, or template-like
+
+## Technique Dispatch Hint: web-motion-polish
+When a web UI task includes "make it feel alive", "add micro-interactions", "improve motion", or similar:
+- Dispatch to `builder` with explicit instruction to use `skills/techniques/web-motion-polish/SKILL.md`
+- Ensure builder respects the hard gate (3 moments + motion spec approval before implementation)
 
 ## Human Confirmation (required)
 Pause and ask the user when decisions are hard to reverse:

@@ -52,6 +52,8 @@
 | Technique | Used by | Purpose |
 |---|---|---|
 | `brainstorming` | `orchestrator`, `planner` | 모호한 요구사항 정제, 접근법 탐색, 설계 승인 질문 정리 |
+| `web-motion-polish` | `builder` | 웹 UI에 성능/접근성 게이트를 지키는 경량 모션과 마이크로 인터랙션 적용 |
+| `korean-humanizer` | any | 한국어 텍스트의 번역체/AI 티를 줄이고 의미를 유지한 채 더 자연스럽게 다듬기 |
 
 ## Codex 워크플로우
 
@@ -65,6 +67,50 @@
 4. 병렬 리소스가 필요하면 오케스트레이터가 지원 스레드 개설을 요청
 5. 사용자는 요청된 프롬프트를 새 스레드에 전달하는 라우터 역할 수행
 6. 메인 오케스트레이터가 결과 통합, 충돌 정리, 허브/워크로그 업데이트
+
+### 워크플로우 다이어그램
+
+```mermaid
+flowchart TB
+  solo["Solo Developer"]
+  orch["Orchestrator"]
+  planner["Planner"]
+  builder["Builder"]
+  critic["Critic"]
+  gate_b["User Decision (\"Gate B\")"]
+
+  subgraph repo["Shared Repository"]
+    hub["PROJECT_HUB.md"]
+    contracts["docs/contracts/*"]
+    decisions["docs/decisions/ADR-*"]
+    design["docs/design/*"]
+    specs["docs/specs/*"]
+    worklog["logs/work/WORKLOG-*"]
+  end
+
+  solo -->|"Idea / Direction"| orch
+  orch -->|"When Architecture decision needed"| gate_b
+  gate_b -->|"Approve / Redirect"| solo
+
+  orch -->|"Pull: Read latest header"| hub
+  orch -->|"Update links + status"| hub
+  orch -->|"Log summary"| worklog
+
+  orch -->|"Call skill"| builder
+  orch -->|"Call skill"| planner
+  orch -->|"Call skill"| critic
+
+  planner -->|"Create: SPEC"| specs
+  planner -->|"Recommend doc structure"| design
+  planner -->|"Log work"| worklog
+
+  builder -->|"Create: API contracts"| contracts
+  builder -->|"Create: ADR (if tradeoff)"| decisions
+  builder -->|"Create: UX flows"| design
+  builder -->|"Log work"| worklog
+
+  critic -->|"Score + feedback"| worklog
+```
 
 ### 프롬프트 예시 (오케스트레이터 시작)
 

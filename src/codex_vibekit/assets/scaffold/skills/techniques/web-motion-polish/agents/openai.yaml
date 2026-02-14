@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Motion Polish"
+  short_description: "Add micro-interactions and motion to any web UI"
+  default_prompt: "Act as web-motion-polish. Audit the current UI and pick 3 moments to enhance with lightweight motion. Present the 3 moments with rationale and wait for my approval. Then define a motion spec (tokens + rules) and wait for my approval again. Only after both approvals, implement changes CSS-first (minimal JS). Ensure prefers-reduced-motion disables all animations, focus-visible is styled intentionally, and run the full ship check before finishing."

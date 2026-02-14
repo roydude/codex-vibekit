@@ -15,6 +15,15 @@ Turn an idea into an actionable plan: what to build, why, what's out of scope, a
 - `PROJECT_HUB.md` (North Star, current status)
 - Existing specs/design/contracts (if any)
 
+## Technique Call Conditions: brainstorming
+Call brainstorming (`skills/techniques/brainstorming/SKILL.md`) when:
+- Multiple implementation approaches are plausible and user confirmation is needed
+- Non-functional priorities are unclear or conflicting
+
+Skip brainstorming when:
+- Task is implementation-clear (bug fix/refactor/doc update)
+- Existing approved design docs already settle key choices
+
 ## Output Contract
 Create or update a spec doc: `docs/specs/SPEC-####-<slug>.md`
 

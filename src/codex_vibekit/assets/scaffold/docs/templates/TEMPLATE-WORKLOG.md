@@ -5,6 +5,7 @@
 ### HH:MM
 - Thread:
 - Role:
+- Technique (if used):
 - What changed:
 - Why:
 - Next:

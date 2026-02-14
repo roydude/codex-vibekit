@@ -2,6 +2,7 @@
 
 ## Recent Changes (keep newest on top)
 - YYYY-MM-DD: Initialized vibekit scaffold.
+- YYYY-MM-DD: Added `brainstorming` as a technique for ambiguous requirements and tradeoff analysis.
 
 ## North Star
 - What are we building? Why does it matter?
@@ -28,6 +29,7 @@
 - Decisions (ADR): `docs/decisions/`
 - Contracts: `docs/contracts/`
 - Design / UX: `docs/design/`
+- Plans / design notes: `docs/plans/`
 - Templates: `docs/templates/`
 
 ## Open Questions (≤ 5)

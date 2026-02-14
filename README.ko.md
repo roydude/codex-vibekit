@@ -40,6 +40,19 @@
 - `AGENTS.md`, `PROJECT_HUB.md` 기반으로 Codex 세션 컨텍스트를 안정화할 때
 - 무거운 프로세스 대신 경량 운영 체계가 필요할 때
 
+## Roles
+| Role | Purpose |
+|---|---|
+| `orchestrator` | 태스크 분해, 스킬 선택, 결과 통합 |
+| `planner` | 요구사항을 구현 가능한 계획으로 변환 |
+| `builder` | 코드/설계/계약 구현 |
+| `critic` | 품질 검증, 리스크 식별, 개선안 제시 |
+
+## Techniques (보조 스킬)
+| Technique | Used by | Purpose |
+|---|---|---|
+| `brainstorming` | `orchestrator`, `planner` | 모호한 요구사항 정제, 접근법 탐색, 설계 승인 질문 정리 |
+
 ## Codex 워크플로우
 
 `codex-vibekit`은 오케스트레이터 중심 모델에 맞춰 Codex에 최적화되어 있습니다. 인간은 목표와 승인 중심으로 개입하고, 실행/분해/병렬 판단은 오케스트레이터가 담당합니다.
@@ -140,7 +153,7 @@ codex-vibekit init .
 
 ```text
 Use $skill-creator to register Codex-native skills from this project's skills folder.
-Register orchestrator, planner, builder, and critic.
+Register orchestrator, planner, builder, critic, and brainstorming.
 Use skills/*/SKILL.md as source, generate/refresh agents/openai.yaml for each skill,
 validate them, and report installed paths plus trigger summaries.
 ```

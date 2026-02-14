@@ -36,6 +36,11 @@
 - `builder`: implementation/design/contracts, API/data model drafting, technical execution
 - `critic`: quality review, usability/risk feedback, pre-ship sanity check
 
+## Techniques (auxiliary skills)
+| Technique | Used by | Purpose |
+|---|---|---|
+| `brainstorming` | `orchestrator`, `planner` | Refine ambiguous requirements, compare approaches, prepare design-approval questions |
+
 ## Human confirmation points (required)
 - Ask the user before locking hard-to-reverse choices:
   - API contracts
@@ -55,4 +60,5 @@
 - Decisions: `docs/decisions/ADR-####-<slug>.md`
 - Contracts: `docs/contracts/API-####-<slug>.md` (or similar)
 - UX notes: `docs/design/UX-####-<slug>.md`
+- Brainstorm/design notes: `docs/plans/YYYY-MM-DD-<topic>-design.md`
 - Work logs: `logs/work/WORKLOG-YYYY-MM-DD.md`

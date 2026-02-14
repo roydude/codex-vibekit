@@ -76,11 +76,13 @@ def _ensure_required_dirs(dst_root: Path) -> None:
         dst_root / "docs" / "specs",
         dst_root / "docs" / "design",
         dst_root / "docs" / "contracts",
+        dst_root / "docs" / "plans",
         dst_root / "logs" / "work",
         dst_root / "skills" / "orchestrator",
         dst_root / "skills" / "planner",
         dst_root / "skills" / "builder",
         dst_root / "skills" / "critic",
+        dst_root / "skills" / "techniques" / "brainstorming",
     ]
     for path in required:
         path.mkdir(parents=True, exist_ok=True)

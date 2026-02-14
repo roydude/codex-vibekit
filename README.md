@@ -40,6 +40,19 @@ Use `codex-vibekit` when:
 - Running Codex sessions where clear operating context (`AGENTS.md`, `PROJECT_HUB.md`) matters.
 - You need lightweight process, not a full enterprise framework.
 
+## Roles
+| Role | Purpose |
+|---|---|
+| `orchestrator` | Break down tasks, choose skills, integrate outputs |
+| `planner` | Convert requirements into implementable plans |
+| `builder` | Implement code/design/contracts |
+| `critic` | Review quality, identify risks, suggest fixes |
+
+## Techniques (auxiliary)
+| Technique | Used by | Purpose |
+|---|---|---|
+| `brainstorming` | `orchestrator`, `planner` | Refine ambiguous requirements, explore approaches, prepare design-approval questions |
+
 ## Codex Workflow
 
 `codex-vibekit` is optimized for Codex with an orchestrator-driven model: human gives goals, orchestrator decides execution and requests extra threads only when needed.
@@ -140,7 +153,7 @@ codex-vibekit init .
 
 ```text
 Use `$skill-creator` to register Codex-native skills from this project's skills folder.
-Register orchestrator, planner, builder, and critic.
+Register orchestrator, planner, builder, critic, and brainstorming.
 Use skills/*/SKILL.md as source, generate/refresh agents/openai.yaml for each skill,
 validate them, and report installed paths plus trigger summaries.
 ```

@@ -4,23 +4,26 @@ from __future__ import annotations
 def build_codex_setup_prompt() -> str:
     return """One-time Codex App setup request:
 
-Use $skill-creator to register four Codex-native skills from this project:
+Use $skill-creator to register Codex-native skills from this project:
 - orchestrator
 - planner
 - builder
 - critic
+- brainstorming (technique)
 
 Source of truth:
 - skills/orchestrator/SKILL.md
 - skills/planner/SKILL.md
 - skills/builder/SKILL.md
 - skills/critic/SKILL.md
+- skills/techniques/brainstorming/SKILL.md
 
 Install location:
 - $CODEX_HOME/skills/codex-vibekit-orchestrator
 - $CODEX_HOME/skills/codex-vibekit-planner
 - $CODEX_HOME/skills/codex-vibekit-builder
 - $CODEX_HOME/skills/codex-vibekit-critic
+- $CODEX_HOME/skills/codex-vibekit-brainstorming
 
 Requirements:
 1) Keep SKILL.md concise and keep trigger conditions in frontmatter description.

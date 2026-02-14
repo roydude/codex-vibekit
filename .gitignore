@@ -14,5 +14,5 @@ coverage.xml
 .python-version
 .idea/
 .vscode/
-.specs/
+.specs/*
 

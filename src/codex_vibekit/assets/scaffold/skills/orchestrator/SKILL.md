@@ -21,9 +21,20 @@ If user input is short (for example, "continue", "next", "go on", or "orchestrat
 1. **Pull**: Read `PROJECT_HUB.md` (Recent Changes) + latest `logs/work/WORKLOG-*.md`
 2. **Decide**: What is the minimum next output for momentum?
 3. **Act**: Do it directly or dispatch one skill (`planner`, `builder`, `critic`)
-4. **Split (if needed)**: Ask user to open a support thread with an exact prompt
-5. **Merge**: Integrate returned output, resolve conflicts, update `PROJECT_HUB.md`
-6. **Log**: Append a short entry to `logs/work/WORKLOG-YYYY-MM-DD.md`
+4. **Brainstorm (if needed)**: call technique `skills/techniques/brainstorming/SKILL.md` before committing to a direction
+5. **Split (if needed)**: Ask user to open a support thread with an exact prompt
+6. **Merge**: Integrate returned output, resolve conflicts, update `PROJECT_HUB.md`
+7. **Log**: Append a short entry to `logs/work/WORKLOG-YYYY-MM-DD.md`
+
+## Technique Call Conditions: brainstorming
+Call brainstorming when:
+- Request is ambiguous and scope cannot be finalized yet
+- Two or more approaches have meaningful tradeoffs
+- Architecture-level direction needs comparison before execution
+
+Skip brainstorming when:
+- Task is already clear and bounded
+- Existing approved docs already define the solution path
 
 ## Human Confirmation (required)
 Pause and ask the user when decisions are hard to reverse:

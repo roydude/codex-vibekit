@@ -1,3 +1,8 @@
+---
+name: builder
+description: Execute implementation and design work for assigned scope, including code, contracts, and technical decisions tied to the spec. Trigger when concrete build tasks are ready; do not trigger for high-level workflow coordination (orchestrator) or pure requirement shaping (planner).
+---
+
 # Skill: builder
 
 ## Purpose

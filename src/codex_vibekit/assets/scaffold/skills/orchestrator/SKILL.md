@@ -1,3 +1,8 @@
+---
+name: orchestrator
+description: Drive end-to-end workflow in the main thread by selecting next actions, dispatching planner/builder/critic, requesting support threads, and merging outcomes. Trigger for session start, coordination, handoffs, and conflict resolution; do not trigger for single-scope implementation-only tasks that can be completed directly by builder.
+---
+
 # Skill: orchestrator
 
 ## Purpose

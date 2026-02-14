@@ -1,3 +1,8 @@
+---
+name: critic
+description: Evaluate delivered UX or implementation quality, surface critical issues, and recommend prioritized fixes and quick wins. Trigger after a feature/design exists and before ship decisions; do not trigger for initial planning or primary implementation tasks.
+---
+
 # Skill: critic
 
 ## Purpose

@@ -152,7 +152,7 @@ codex-vibekit init .
 3. Open a new Codex App thread and send this:
 
 ```text
-Use `$skill-installer`. Install all skills discovered from `skills/**/SKILL.md` into `$CODEX_HOME/skills`, then report discovered skill names and installed absolute paths. Fail fast with exact error if any install fails.
+Use `$skill-installer`. Discover all skill folders under `skills/` that contain `SKILL.md` (including nested technique folders), install those folders into `$CODEX_HOME/skills`, report discovered skill names and installed absolute paths, and fail fast with exact error if any install fails.
 ```
 
 4. Start daily work in your main thread with:
@@ -199,7 +199,7 @@ After `init`, run:
 codex-vibekit codex-setup
 ```
 
-Then open a new Codex thread, paste the printed prompt, and let `$skill-installer` install all skills from your project `skills/**/SKILL.md`.
+Then open a new Codex thread, paste the printed prompt, and let `$skill-installer` install all skills from your project skill folders.
 
 Daily use after one-time setup:
 

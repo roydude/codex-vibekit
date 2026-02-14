@@ -152,7 +152,7 @@ codex-vibekit init .
 3. Codex App에서 새 스레드를 열고 아래 자연어 프롬프트 전달:
 
 ```text
-Use `$skill-installer`. Install all skills discovered from `skills/**/SKILL.md` into `$CODEX_HOME/skills`, then report discovered skill names and installed absolute paths. Fail fast with exact error if any install fails.
+Use `$skill-installer`. Discover all skill folders under `skills/` that contain `SKILL.md` (including nested technique folders), install those folders into `$CODEX_HOME/skills`, report discovered skill names and installed absolute paths, and fail fast with exact error if any install fails.
 ```
 
 4. 이후 메인 스레드는 아래 한 줄로 시작:
@@ -199,7 +199,7 @@ codex-vibekit codex-setup
 codex-vibekit codex-setup
 ```
 
-그 다음 Codex에서 새 스레드를 열고 출력된 프롬프트를 붙여넣어 `$skill-installer`가 프로젝트 `skills/**/SKILL.md` 기반으로 스킬을 설치하게 합니다.
+그 다음 Codex에서 새 스레드를 열고 출력된 프롬프트를 붙여넣어 `$skill-installer`가 프로젝트 스킬 폴더 기반으로 스킬을 설치하게 합니다.
 
 1회 세팅 이후 일상 시작 문구:
 

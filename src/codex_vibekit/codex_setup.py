@@ -4,35 +4,16 @@ from __future__ import annotations
 def build_codex_setup_prompt() -> str:
     return """One-time Codex App setup request:
 
-Use $skill-creator to register Codex-native skills from this project:
-- orchestrator
-- planner
-- builder
-- critic
-- brainstorming (technique)
-
-Source of truth:
-- skills/orchestrator/SKILL.md
-- skills/planner/SKILL.md
-- skills/builder/SKILL.md
-- skills/critic/SKILL.md
-- skills/techniques/brainstorming/SKILL.md
-
-Install location:
-- $CODEX_HOME/skills/codex-vibekit-orchestrator
-- $CODEX_HOME/skills/codex-vibekit-planner
-- $CODEX_HOME/skills/codex-vibekit-builder
-- $CODEX_HOME/skills/codex-vibekit-critic
-- $CODEX_HOME/skills/codex-vibekit-brainstorming
+Use $skill-installer. Install these skill directories into $CODEX_HOME/skills:
+- Discover all skill folders under skills/ that contain SKILL.md
+- Include nested technique folders
 
 Requirements:
-1) Keep SKILL.md concise and keep trigger conditions in frontmatter description.
-2) If agents/openai.yaml already exists, validate first and preserve it by default.
-3) Regenerate agents/openai.yaml only when validation fails or required fields are missing.
-4) If agents/openai.yaml is missing, generate it from SKILL.md.
-5) When any regeneration happens, show before/after summary of changed interface fields.
-6) Validate each skill and report installed paths.
-7) Do not copy unrelated files.
+1) Treat each discovered folder as one install unit.
+2) If an installed destination already exists, fail fast with the exact error.
+3) Keep existing agents/openai.yaml metadata from source folders as-is.
+4) Report discovered skill names and installed absolute paths.
+5) After install, remind me to restart Codex.
 
 After setup, return:
 - created/updated skill paths

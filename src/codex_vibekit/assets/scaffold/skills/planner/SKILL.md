@@ -1,3 +1,8 @@
+---
+name: planner
+description: Convert ambiguous goals into scoped specs with MVP boundaries, non-goals, task breakdown, and acceptance criteria. Trigger when requirements/scope are unclear or need formalization; do not trigger for already-approved clear tasks that should move directly to implementation.
+---
+
 # Skill: planner
 
 ## Purpose

@@ -1,3 +1,8 @@
+---
+name: brainstorming
+description: Refine ambiguous feature requests into 2-3 viable options with tradeoffs and a recommended direction for orchestrator/planner. Trigger when requirements or architectural approach are unclear; do not trigger for straightforward bug fixes, refactors, or tasks already covered by approved design docs.
+---
+
 # Skill: brainstorming (technique)
 
 ## Purpose
@@ -53,4 +58,3 @@ Then return to orchestrator/planner with:
 - Risk (if any):
 - Next Action:
 - Docs Created/Updated:
-

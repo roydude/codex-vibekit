@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import sys
 
+from .codex_setup import build_codex_setup_prompt
 from .scaffold import init_scaffold
 from .system_check import run_check
 
@@ -22,6 +23,10 @@ def _build_parser() -> argparse.ArgumentParser:
     )
 
     subparsers.add_parser("check", help="Check local prerequisites (uv, git, Python).")
+    subparsers.add_parser(
+        "codex-setup",
+        help="Print a one-time setup prompt for registering Codex-native skills.",
+    )
     return parser
 
 
@@ -41,10 +46,13 @@ def main(argv: list[str] | None = None) -> int:
         print(result.summary())
         return 0
 
+    if args.command == "codex-setup":
+        print(build_codex_setup_prompt())
+        return 0
+
     print(f"error: unknown command {args.command!r}", file=sys.stderr)
     return 2
 
 
 if __name__ == "__main__":  # pragma: no cover
     raise SystemExit(main())
-

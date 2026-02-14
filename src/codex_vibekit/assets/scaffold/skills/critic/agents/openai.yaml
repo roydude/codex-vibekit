@@ -1,0 +1,5 @@
+interface:
+  display_name: "Critic"
+  short_description: "Review quality and flag risks"
+  default_prompt: "Act as critic. Score clarity/friction/trust/visual quality, list critical issues first, then provide quick wins and a ship/no-ship recommendation."
+

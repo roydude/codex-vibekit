@@ -1,0 +1,5 @@
+interface:
+  display_name: "Orchestrator"
+  short_description: "Drive workflow and route support threads"
+  default_prompt: "Act as orchestrator for this project. Read PROJECT_HUB and latest WORKLOG, choose the smallest next output, and request support threads only when needed."
+

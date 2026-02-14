@@ -102,6 +102,8 @@ Please integrate, resolve conflicts, and continue orchestration.
 - Codex: 최적 궁합. `AGENTS.md`와 스캐폴드 문서를 운영 컨텍스트로 바로 활용 가능
 - Cursor/기타 IDE 에이전트: `AGENTS.md`를 자동 반영하지 않을 수 있어 `.cursorrules`, `CLAUDE.md`, 프롬프트 프리앰블 같은 보조 설정이 필요할 수 있음
 - 권장 방식: 스캐폴드를 단일 진실 소스로 두고, IDE별 설정 파일에 핵심 규칙만 미러링
+- 글로벌 Codex 가이던스(`~/.codex/AGENTS.md`)는 선택 사항입니다. 회사 업무와 바이브코딩을 같이 쓰는 경우, 글로벌 규칙은 최소화하고 워크플로우 규칙은 프로젝트 `AGENTS.md`에 두는 것이 안전합니다.
+- 필요할 때만 `~/.codex/AGENTS.override.md`를 임시로 사용하고, 끝나면 제거하세요.
 
 ## 설치
 
@@ -123,6 +125,30 @@ pipx install git+https://github.com/roydude/codex-vibekit.git
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install git+https://github.com/roydude/codex-vibekit.git
+```
+
+## 설치 후 세팅 순서 (Codex App, 자연어)
+
+1. 위 방법 중 하나로 `codex-vibekit` 설치
+2. 프로젝트 루트에서 아래 실행:
+
+```bash
+codex-vibekit init .
+```
+
+3. Codex App에서 새 스레드를 열고 아래 자연어 프롬프트 전달:
+
+```text
+Use $skill-creator to register Codex-native skills from this project's skills folder.
+Register orchestrator, planner, builder, and critic.
+Use skills/*/SKILL.md as source, generate/refresh agents/openai.yaml for each skill,
+validate them, and report installed paths plus trigger summaries.
+```
+
+4. 이후 메인 스레드는 아래 한 줄로 시작:
+
+```text
+Continue in orchestrator mode.
 ```
 
 ## 제거 (Uninstall)
@@ -152,6 +178,23 @@ python -m pip uninstall codex-vibekit
 ```bash
 codex-vibekit check
 codex-vibekit init .
+codex-vibekit codex-setup
+```
+
+## Codex App 1회 초기 세팅
+
+`init` 실행 후 아래 명령으로 세팅 프롬프트를 출력합니다.
+
+```bash
+codex-vibekit codex-setup
+```
+
+그 다음 Codex에서 새 스레드를 열고 출력된 프롬프트를 붙여넣어 `$skill-creator`가 프로젝트 `skills/` 기반으로 Codex 네이티브 스킬을 등록하게 합니다.
+
+1회 세팅 이후 일상 시작 문구:
+
+```text
+Continue in orchestrator mode.
 ```
 
 ## `init` 동작

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Planner"
+  short_description: "Turn ideas into scoped specs"
+  default_prompt: "Act as planner. Produce or update a focused SPEC with MVP scope, non-goals, tasks with acceptance criteria, and open questions."
+

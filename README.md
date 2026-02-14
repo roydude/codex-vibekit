@@ -102,6 +102,8 @@ Please integrate, resolve conflicts, and continue orchestration.
 - Codex: best-fit workflow. `AGENTS.md` and scaffold docs are directly useful for operational context.
 - Cursor/other IDE agents: usually require extra setup (`.cursorrules`, `CLAUDE.md`, or explicit prompt preamble) because they may not automatically follow `AGENTS.md`.
 - Practical rule: keep the scaffold as the source of truth, then mirror key rules into each IDE's native config file.
+- Global Codex guidance (`~/.codex/AGENTS.md`) is optional. If you use Codex for mixed contexts (work + vibe coding), keep global rules minimal and put workflow-specific rules in project `AGENTS.md`.
+- If needed, use `~/.codex/AGENTS.override.md` only temporarily, then remove it.
 
 ## Installation
 
@@ -123,6 +125,30 @@ pipx install git+https://github.com/roydude/codex-vibekit.git
 python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install git+https://github.com/roydude/codex-vibekit.git
+```
+
+## Setup Order (Codex App, natural language)
+
+1. Install `codex-vibekit` (any method above).
+2. In your project root, run:
+
+```bash
+codex-vibekit init .
+```
+
+3. Open a new Codex App thread and send this:
+
+```text
+Use `$skill-creator` to register Codex-native skills from this project's skills folder.
+Register orchestrator, planner, builder, and critic.
+Use skills/*/SKILL.md as source, generate/refresh agents/openai.yaml for each skill,
+validate them, and report installed paths plus trigger summaries.
+```
+
+4. Start daily work in your main thread with:
+
+```text
+Continue in orchestrator mode.
 ```
 
 ## Uninstall
@@ -152,6 +178,23 @@ Note: uninstalling the CLI does not remove files already injected into projects.
 ```bash
 codex-vibekit check
 codex-vibekit init .
+codex-vibekit codex-setup
+```
+
+## One-Time Codex App Setup
+
+After `init`, run:
+
+```bash
+codex-vibekit codex-setup
+```
+
+Then open a new Codex thread, paste the printed prompt, and let `$skill-creator` register Codex-native skills from your project `skills/` files.
+
+Daily use after one-time setup:
+
+```text
+Continue in orchestrator mode.
 ```
 
 ## What `init` does

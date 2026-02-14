@@ -152,10 +152,7 @@ codex-vibekit init .
 3. Open a new Codex App thread and send this:
 
 ```text
-Use `$skill-creator` to register Codex-native skills from this project's skills folder.
-Register orchestrator, planner, builder, critic, and brainstorming.
-Use skills/*/SKILL.md as source, generate/refresh agents/openai.yaml for each skill,
-validate them, and report installed paths plus trigger summaries.
+Use `$skill-installer`. Install all skills discovered from `skills/**/SKILL.md` into `$CODEX_HOME/skills`, then report discovered skill names and installed absolute paths. Fail fast with exact error if any install fails.
 ```
 
 4. Start daily work in your main thread with:
@@ -202,7 +199,7 @@ After `init`, run:
 codex-vibekit codex-setup
 ```
 
-Then open a new Codex thread, paste the printed prompt, and let `$skill-creator` register Codex-native skills from your project `skills/` files.
+Then open a new Codex thread, paste the printed prompt, and let `$skill-installer` install all skills from your project `skills/**/SKILL.md`.
 
 Daily use after one-time setup:
 
